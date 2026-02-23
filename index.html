@@ -18,41 +18,47 @@
 </head>
 
 <body class="bg-[#F8FAFC]">
-    <header class="border-b-1 border-gray-400">
-        <h1 class="font-bold text-2xl pt-5 pl-14">Job Application Tracker</h1>
+    <header class=" sticky top-0 z-50 bg-[#F8FAFC]">
+        <div class="border-b-1 border-gray-400">
+            <h1 class="font-bold text-4xl pt-5 pl-14">Job Application Tracker</h1>
 
         <div class="grid grid-cols-3 mx-auto gap-6 py-5 px-12">
-            <div id="count-card-1" class="rounded-lg p-4 bg-white">
+            <div class="rounded-lg p-4 bg-white">
                 <p>Total</p>
-                <h2 id="count-1" class="text-black font-bold text-2xl ">0</h2>
+                <h2 id="display-count" class="text-black font-bold text-2xl ">0</h2>
             </div>
 
-            <div id="count-card-2" class="rounded-lg p-4 bg-white">
+            <div class="rounded-lg p-4 bg-white">
                 <p>Interview</p>
-                <h2 id="count-2" class="text-green-600 font-bold text-2xl ">0</h2>
+                <h2 id="interview-card" class="text-green-600 font-bold text-2xl ">0</h2>
             </div>
 
-            <div id="count-card-3" class="rounded-lg p-4 bg-white">
+            <div class="rounded-lg p-4 bg-white">
                 <p>Rejected</p>
-                <h2 id="count-3" class="text-red-600 font-bold text-2xl ">0</h2>
+                <h2 id="rejected-card" class="text-red-600 font-bold text-2xl ">0</h2>
             </div>
         </div>
-    </header>
+        </div>
 
-    <section>
+        <section>
         <div class="flex justify-between">
             <p class=" text-2xl pt-5 pl-14">Available Jobs</p>
-            <h2 class="pt-5 pr-14 text-blue-900"><span id="count-jobs" class="font-bold ">0</span> jobs</h2>
+            <h2 class="pt-5 pr-14 text-blue-900"><span id="display-count-2" class="font-bold ">0</span> jobs</h2>
         </div>
         <div class="pt-5 pl-14">
-            <button class="btn bg-white w-[100px]">All</button>
-            <button class="btn bg-white">Interview</button>
-            <button class="btn bg-white">Rejected</button>
+            <button onclick="showOnly('jobs-all')" class="btn bg-white w-[100px]">All</button>
+            <button onclick="showOnly('jobs-interview')" class="btn bg-white">Interview</button>
+            <button onclick="showOnly('jobs-rejected')" class="btn bg-white">Rejected</button>
         </div>
+    </section>
+    </header>
 
-        <div class="grid grid-rows-8 mx-auto gap-6 py-5 px-12">
+        
 
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+    <section id="jobs-all">
+        <div id="card-wrapper" class="grid grid-rows-8 mx-auto gap-6 py-5 px-12">
+
+            <div id="full-card-1" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">Mobile First Corp</h2>
                     <br>
@@ -60,22 +66,22 @@
                     <br>
                     <p>Remote • Full-time • $130,000 - $175,000</p>
                     <br>
-                    <button id="button-event-1" class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-2" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>Build cross-platform mobile applications using React Native. Work on
                         products used by millions of
                         users worldwide.</p>
                     <br>
-                    <button id="interview-1" class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button id="Rejected-1" class="btn btn-outline btn-error">REJECTED</button>
+                    <button class="btn btn-outline btn-success">INTERVIEW</button>
+                    <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-1" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-2" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">WebFlow Agency</h2>
                     <br>
@@ -83,7 +89,7 @@
                     <br>
                     <p>Los Angeles, CA • Part-time • $80,000 - $120,000</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-2" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>Create stunning web experiences for high-profile clients. Must have
@@ -93,11 +99,11 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-2" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-3" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">DataViz Solutions</h2>
                     <br>
@@ -105,7 +111,7 @@
                     <br>
                     <p>Boston, MA • Full-time • $125,000 - $165,000</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-3" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p class="lg:whitespace-nowrap">Transform complex data into compelling visualizations. Required
@@ -117,11 +123,11 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-3" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-4" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">CloudFirst Inc</h2>
                     <br>
@@ -129,7 +135,7 @@
                     <br>
                     <p>Seattle, WA • Full-time • $140,000 - $190,000</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-4" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>Design and maintain scalable backend systems using Python and AWS. Work
@@ -139,11 +145,11 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-4" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-5" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">Innovation Labs</h2>
                     <br>
@@ -151,7 +157,7 @@
                     <br>
                     <p>Austin, TX • Full-time • $110,000 - $150,000</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-5" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>Create beautiful and functional user interfaces for our suite of
@@ -161,11 +167,11 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-5" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-6" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">MegaCorp Solutions</h2>
                     <br>
@@ -173,7 +179,7 @@
                     <br>
                     <p>New York, NY • Full-time • $130,000 - $170,00</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-6" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>Build enterprise applications with JavaScript and modern frameworks. We
@@ -184,11 +190,11 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-6" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-7" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">StartupXYZ</h2>
                     <br>
@@ -196,7 +202,7 @@
                     <br>
                     <p>Remote • Full-time • $120,000 - $160,000</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-7" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>Join our fast-growing startup and work on our core platform. Experience
@@ -206,11 +212,11 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6"><i
+                <button id="delete-7" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6"><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
-            <div class="bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
+            <div id="full-card-8" class="full-card bg-white gap-6 py-5 px-12 rounded-lg justify-between relative">
                 <div class="text-[#64748B]">
                     <h2 class="font-semibold text-2xl text-[#002C5C]">TechCorp Industries</h2>
                     <br>
@@ -218,7 +224,7 @@
                     <br>
                     <p>San Francisco, CA • Full-time • $130,000 - $175,000</p>
                     <br>
-                    <button class="btn bg-white">NOT APPLIED</button>
+                    <button id="status-label-8" class="btn bg-white">NOT APPLIED</button>
                     <br>
                     <br>
                     <p>We are looking for an experienced Frontend Developer to build scalable
@@ -229,13 +235,32 @@
                     <button class="btn btn-outline btn-error">REJECTED</button>
                 </div>
 
-                <button id="delete" class="btn bg-white w-11 rounded-full absolute top-6 right-6  "><i
+                <button id="delete-8" class="btn bg-white w-11 text-neutral/40 rounded-full absolute top-6 right-6  "><i
                         class="fa-regular fa-trash-can"></i></button>
 
             </div>
         </div>
     </section>
+
+    <section id="jobs-interview" class="w-[90%] my-7 mx-auto bg-white gap-6 shadow-sm rounded-lg justify-between relative">
+        <div id="jobs-available-card" class="flex flex-col items-center py-30 px-[50]">
+            <img src="jobs.png" alt="">
+            <h2 class="font-semibold text-2xl text-[#002C5C]">No jobs available</h2>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+    </section>
+    <section id="jobs-rejected" class="w-[90%] my-7 mx-auto bg-white gap-6 shadow-sm rounded-lg justify-between relative">
+        <div id="jobs-available-card" class="flex flex-col items-center py-30 px-[50]">
+            <img src="jobs.png" alt="">
+            <h2 class="font-semibold text-2xl text-[#002C5C]">No jobs available</h2>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+    </section>
+
+    <script src="script/hide.js"></script>
     <script src="script/countCard.js"></script>
+    <script src="script/delete.js"></script>
+    <script src="script/filtering.js"></script>
 </body>
 
 </html>
